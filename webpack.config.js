@@ -27,5 +27,9 @@ module.exports = {
       filename: "style.css",
       // chunkFilename: "id.css"
     })
-  ]
+  ],
+  watchOptions: {
+    aggregateTimeout: 2000,
+    ignored: 'src/script/three.js'
+  }
 };

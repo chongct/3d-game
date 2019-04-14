@@ -3,6 +3,8 @@ import "../styles/styles.scss";
 import createScene from "./createScene.js";
 import createLights from "./createLights.js";
 import createSea from "./createSea.js";
+import createSky from "./createSky.js";
+import createPlane from "./createPlane.js";
 
 window.addEventListener("load", init, false);
 
@@ -23,6 +25,11 @@ function init() {
   // add the objects
   let sea = createSea();
   scene.add(sea.mesh);
+  let sky = createSky();
+  scene.add(sky.mesh);
+  let plane = createPlane();
+  scene.add(plane.mesh);
+  // console.log('test');
 
   renderer.render(scene, camera);
 }
