@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/script/index.js",
@@ -26,6 +27,9 @@ module.exports = {
       // both options are optional
       filename: "style.css",
       // chunkFilename: "id.css"
+    }),
+    new HtmlWebpackPlugin({
+      template: "index.html"
     })
   ],
   watchOptions: {
