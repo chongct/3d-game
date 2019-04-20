@@ -1,7 +1,7 @@
 let THREE = require("three");
 import { colours } from "./constants.js";
 
-let Sea = function() {
+const Sea = function() {
   // create the geometry (shape) of the cylinder
   // the parameters are radius top, radius bottom, height, number of segments on the radius, number of segments vertically
   let geom = new THREE.CylinderGeometry(600, 600, 800, 40, 10);

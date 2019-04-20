@@ -6,30 +6,48 @@ import createSea from "./createSea.js";
 import createSky from "./createSky.js";
 import createPlane from "./createPlane.js";
 
-window.addEventListener("load", init, false);
+class Game {
+  constructor() {
+  }
 
-function init() {
-  // set up the scene, the camera and the renderer
-  let createSceneObject = createScene();
-  let scene = createSceneObject.scene;
-  let camera = createSceneObject.camera;
-  let renderer = createSceneObject.renderer;
+  init() {
+    // set up the scene, the camera and the renderer
+    let createSceneObject = createScene();
+    this.scene = createSceneObject.scene;
+    this.camera = createSceneObject.camera;
+    this.renderer = createSceneObject.renderer;
 
-  // add the lights
-  let createLightObject = createLights();
-  let hemisphereLight = createLightObject.hemisphereLight;
-  let shadowLight = createLightObject.shadowLight;
-  scene.add(hemisphereLight);
-  scene.add(shadowLight);
+    // add the lights
+    let createLightObject = createLights();
+    let hemisphereLight = createLightObject.hemisphereLight;
+    let shadowLight = createLightObject.shadowLight;
+    this.scene.add(hemisphereLight);
+    this.scene.add(shadowLight);
 
-  // add the objects
-  let sea = createSea();
-  scene.add(sea.mesh);
-  let sky = createSky();
-  scene.add(sky.mesh);
-  let plane = createPlane();
-  scene.add(plane.mesh);
-  // console.log('test');
+    // add the objects
+    this.sea = createSea();
+    this.scene.add(this.sea.mesh);
+    this.sky = createSky();
+    this.scene.add(this.sky.mesh);
+    this.plane = createPlane();
+    this.scene.add(this.plane.mesh);
 
-  renderer.render(scene, camera);
+    this.loop();
+  }
+
+  loop() {
+    // rotate the propeller, the sea and the sky
+    this.plane.propeller.rotation.x += 0.03;
+    this.sea.mesh.rotation.z += 0.005;
+    this.sky.mesh.rotation.z += 0.01;
+
+    // render the scene
+    this.renderer.render(this.scene, this.camera);
+
+    // call the loop function again
+    requestAnimationFrame(this.loop.bind(this));
+  }
 }
+
+const game = new Game();
+window.addEventListener("load", game.init(), false);

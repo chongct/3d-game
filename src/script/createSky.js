@@ -1,7 +1,7 @@
 let THREE = require("three");
 import { colours } from "./constants.js";
 
-let Cloud = function() {
+const Cloud = function() {
   // create an empty container that will hold the different parts of the cloud
   this.mesh = new THREE.Object3D();
 
@@ -40,7 +40,7 @@ let Cloud = function() {
   }
 }
 
-let Sky = function() {
+const Sky = function() {
   // create an empty container
   this.mesh = new THREE.Object3D();
 

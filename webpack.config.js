@@ -29,7 +29,7 @@ module.exports = {
     })
   ],
   watchOptions: {
-    aggregateTimeout: 2000,
+    aggregateTimeout: 500,
     ignored: 'src/script/three.js'
   }
 };
