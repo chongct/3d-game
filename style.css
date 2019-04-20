@@ -1,0 +1,9 @@
+#world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(#E4E0BA, #F7D9AA); }
+
