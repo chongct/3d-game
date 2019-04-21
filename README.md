@@ -2,6 +2,8 @@
 
 This is a simple game built with three.js following [Aviator guide](https://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/).
 
+Live version: https://chongct.com/3d-game/
+
 ## Getting Started
 ### How to Use
 * Fork and clone this repository.
